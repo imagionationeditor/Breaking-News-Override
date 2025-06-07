@@ -2,6 +2,7 @@
 #include "ScriptMgr.h"
 #include <sstream>
 #include "Config.h"
+#include "DatabaseEnv.h"
 
 std::string ServerStats::GetHTMLStyle()
 {
@@ -175,7 +176,7 @@ std::string ServerStats::GetServerNews()
     for (int i = 1; i <= 10; i++) // Support up to 10 news lines
     {
         std::string newsKey = "News.Line" + std::to_string(i);
-        std::string newsText = sConfigMgr->GetOption<std::string>(newsKey, "");
+        std::string newsText = ConfigMgr::instance()->GetOption<std::string>(newsKey, "");
         
         if (newsText.empty())
             break;
@@ -205,4 +206,4 @@ std::string ServerStats::GenerateHTML()
     ss << "</div>";
     
     return ss.str();
-} 
+}
