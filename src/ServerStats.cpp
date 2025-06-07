@@ -1,6 +1,7 @@
 #include "ServerStats.h"
 #include "ScriptMgr.h"
 #include <sstream>
+#include "Config.h"
 
 std::string ServerStats::GetHTMLStyle()
 {
